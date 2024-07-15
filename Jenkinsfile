@@ -12,8 +12,7 @@ pipeline {
                     def additionalArgs = [
                         '--format', 'HTML',
                         '--format', 'XML',
-                        '--nvdApiKey', '995b7b5f-59e3-4685-a180-17c9aca2fa80',
-                        '--nvdApiWait', '4000' // Adjust the wait time as needed
+                        '--nvdApiKey', '995b7b5f-59e3-4685-a180-17c9aca2fa80'
                     ].join(' ')
                     dependencyCheck additionalArguments: additionalArgs, odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
                 }
