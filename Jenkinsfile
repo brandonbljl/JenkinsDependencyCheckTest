@@ -8,7 +8,15 @@ pipeline {
         }
         stage('OWASP DependencyCheck') {
             steps {
-                dependencyCheck additionalArguments: '--format HTML --format XML --nvdApiKey 995b7b5f-59e3-4685-a180-17c9aca2fa80 --nvdApiWait 4000', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
+                script {
+                    def additionalArgs = [
+                        '--format', 'HTML',
+                        '--format', 'XML',
+                        '--nvdApiKey', '995b7b5f-59e3-4685-a180-17c9aca2fa80',
+                        '--nvdApiWait', '4000' // Adjust the wait time as needed
+                    ].join(' ')
+                    dependencyCheck additionalArguments: additionalArgs, odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
+                }
             }
         }
     }
