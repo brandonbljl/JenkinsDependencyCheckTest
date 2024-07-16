@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    environment {
+        NVD_API_KEY = credentials('df7daa95-6d20-4f57-8f00-5496ad92b9d9')
+    }
+
     stages {
         stage('Checkout SCM') {
             steps {
@@ -10,7 +15,7 @@ pipeline {
 
         stage('OWASP DependencyCheck') {
             steps {
-                dependencyCheck additionalArguments: '--format HTML --format XML --nvdApiKey df7daa95-6d20-4f57-8f00-5496ad92b9d9', 
+                dependencyCheck additionalArguments: '--format HTML --format XML --nvdApiKey ${NVD_API_KEY}', 
                 odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
             }
         }
