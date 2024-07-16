@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Ensure Dependency Check tool is available
-                    def dependencyCheckHome = tool name: 'OWASP_Dependency-Check_Vulnerabilities', type: 'org.jenkinsci.plugins.tools.ToolInstallation'
+                    def dependencyCheckHome = tool name: 'OWASP Dependency-Check Vulnerabilities', type: 'org.jenkinsci.plugins.tools.ToolInstallation'
                     def dependencyCheckScript = "${dependencyCheckHome}/bin/dependency-check.sh"
 
                     // Execute Dependency Check scan
