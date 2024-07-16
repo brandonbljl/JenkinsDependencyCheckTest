@@ -15,7 +15,7 @@ pipeline {
 
         stage('OWASP DependencyCheck') {
             steps {
-                dependencyCheck additionalArguments: '--format HTML --format XML --nvdApiKey ${NVD_API_KEY}', 
+                dependencyCheck additionalArguments: '--format HTML --format XML --nvdApiKey ${NVD_API_KEY} --nvdApiDelay 2000', 
                 odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
             }
         }
